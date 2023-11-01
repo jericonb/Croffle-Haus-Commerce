@@ -14,8 +14,8 @@ export default function Home(){
             </div>
         </div>
             ),
-        destination: "/products",
-        label: "Order now!"
+        // destination: "/products",
+        // label: "Order now!"
     }
 
     return(

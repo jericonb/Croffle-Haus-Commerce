@@ -36,11 +36,9 @@ export default function AddProducts(){
                 body: formData
             })
             .then(res => res.json())
-            .then(data => {
+            .then(formData => {
 
-            console.log(data);
-
-            if(data){
+            if(formData){
                 Swal.fire({
 
                     icon:"success",
@@ -54,7 +52,7 @@ export default function AddProducts(){
 
                     icon: "error",
                     title: "Unsuccessful Product Creation",
-                    text: data.message
+                    text: formData.message
 
                 })
             }
@@ -76,19 +74,19 @@ export default function AddProducts(){
                 <Form onSubmit={e => createProduct(e)} encType='multipart/form-data'>
                     <Form.Group>
                         <Form.Label>Name:</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Name" required value={name} onChange={e => setName(e.target.value)}/>
+                        <Form.Control type="text" placeholder="Enter Name" required name='name' onChange={e => setName(e.target.value)}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Description:</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Description" required value={description} onChange={e => {setDescription(e.target.value)}}/>
+                        <Form.Control type="text" placeholder="Enter Description" required name='description' onChange={e => {setDescription(e.target.value)}}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Price:</Form.Label>
-                        <Form.Control type="number" placeholder="Enter Price" required value={price} onChange={e => {setPrice(e.target.value)}}/>
+                        <Form.Control type="number" placeholder="Enter Price" required name='price' onChange={e => {setPrice(e.target.value)}}/>
                     </Form.Group>
                     <Form.Group controlId='fileName'>
                         <Form.Label>Upload Image:</Form.Label>
-                        <Form.Control type="file" name='image' onChange={e => setImage(e.target.files[0])} size="lg" />
+                        <Form.Control type="file" required name='image' onChange={(e) => setImage(e.target.files[0])} size="lg" />
                     </Form.Group>
                     <Button variant="primary" type="submit" className="my-5">Submit</Button>
                 </Form>

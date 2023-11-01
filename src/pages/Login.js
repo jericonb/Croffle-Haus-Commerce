@@ -15,6 +15,7 @@ export default function Login(props) {
     function authenticate(e) {
 
         e.preventDefault();
+        
         fetch('https://croffle-haus.onrender.com/users/login',{
 
         method: 'POST',

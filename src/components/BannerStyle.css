@@ -1,4 +1,4 @@
-.banner .btn-custom {
+/* .banner .btn-custom {
     background-color: #e3bc9a;
     color: black; 
     font-size: 16px; 
@@ -8,4 +8,19 @@
     background-color: #cd874a;
     transition: all 0.50s ease;
   }
-  
+   */
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../Images/1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70vh;
+  height: 60vh;
+}
+
+.banner h1 {
+  height: 22vh;
+}
