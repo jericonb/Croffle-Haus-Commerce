@@ -1,0 +1,19 @@
+.userviewcontainer {
+    background-color: #E5E5DB;
+}
+
+.userviewproductsbox {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.userviewproducts{
+   
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

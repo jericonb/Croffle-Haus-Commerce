@@ -1,0 +1,11 @@
+.banner .btn-custom {
+    background-color: #e3bc9a;
+    color: black; 
+    font-size: 16px; 
+  }
+
+.banner .btn-custom:hover {
+    background-color: #cd874a;
+    transition: all 0.50s ease;
+  }
+  

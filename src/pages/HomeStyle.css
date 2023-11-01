@@ -1,0 +1,26 @@
+.home {
+    text-align: center;
+    background-color: #E5E5DB;
+}
+.slogancontainer {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+}
+.sloganphrase {
+    color: #cd5700;
+    font-family: 'Courgette';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 70px;
+}
+
+.slogan {
+    color: #ff7f50;
+    font-family: 'Courgette';
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 65px;
+}
