@@ -9,11 +9,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: solid;
 }
-.productviewbox {
-    border: solid;
-}
+
 .productviewform {
     display: flex;
     justify-content: center;
