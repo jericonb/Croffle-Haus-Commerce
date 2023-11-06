@@ -12,7 +12,7 @@ export default function Logout(){
 			id: null,
 			isAdmin: null
 		})
-	}, [])
+	})
 
 	return(
 		<Navigate to = '/login' />

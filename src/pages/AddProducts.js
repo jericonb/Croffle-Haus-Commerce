@@ -3,6 +3,7 @@ import {Form,Button} from 'react-bootstrap';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import UserContext from '../UserContext';
+import axios from 'axios';
 
 export default function AddProducts(){
 
@@ -15,56 +16,50 @@ export default function AddProducts(){
     const [price,setPrice] = useState("");
     const [image,setImage] = useState("")
 
-    function createProduct(e){
-
-       
+    async function createProduct(e) {
         e.preventDefault();
-
+    
         let token = localStorage.getItem('token');
-
+    
         const formData = new FormData();
-            formData.append('image', image);
-            formData.append('name', name);
-            formData.append('description', description);
-            formData.append('price', price);
-
-            fetch(`https://croffle-haus.onrender.com/products/add`, {
-                method: 'POST',
+        formData.append('image', image);
+        formData.append('name', name);
+        formData.append('description', description);
+        formData.append('price', price);
+    
+        try {
+            const response = await axios.post(`https://croffle-haus.onrender.com/products/add`, formData, {
                 headers: {
-                    "Authorization": `Bearer ${token}`
-                },
-                body: formData
-            })
-            .then(res => res.json())
-            .then(formData => {
-
-            if(formData){
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "multipart/form-data"
+                }
+            });
+    
+            if (response.data) {
                 Swal.fire({
-
-                    icon:"success",
+                    icon: "success",
                     title: "Product Added"
-
-                })
-
+                });
+    
                 navigate("/products");
             } else {
                 Swal.fire({
-
                     icon: "error",
                     title: "Unsuccessful Product Creation",
-                    text: formData.message
-
-                })
+                    text: response.data.message
+                });
             }
-
-        })
-
-        setName("")
-        setDescription("")
+    
+        } catch (error) {
+            console.error('Error creating product:', error);
+        }
+    
+        setName("");
+        setDescription("");
         setPrice(0);
         setImage("");
     }
-
+    
     return (
 
             (user.isAdmin === true)
@@ -74,15 +69,15 @@ export default function AddProducts(){
                 <Form onSubmit={e => createProduct(e)} encType='multipart/form-data'>
                     <Form.Group>
                         <Form.Label>Name:</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Name" required name='name' onChange={e => setName(e.target.value)}/>
+                        <Form.Control type="text" placeholder="Enter Name" required value={name} onChange={e => setName(e.target.value)}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Description:</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Description" required name='description' onChange={e => {setDescription(e.target.value)}}/>
+                        <Form.Control type="text" placeholder="Enter Description" required value={description} onChange={e => {setDescription(e.target.value)}}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Price:</Form.Label>
-                        <Form.Control type="number" placeholder="Enter Price" required name='price' onChange={e => {setPrice(e.target.value)}}/>
+                        <Form.Control type="number" placeholder="Enter Price" required value={price} onChange={e => {setPrice(e.target.value)}}/>
                     </Form.Group>
                     <Form.Group controlId='fileName'>
                         <Form.Label>Upload Image:</Form.Label>
