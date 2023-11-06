@@ -1,0 +1,27 @@
+.productviewimg {
+    width: 150px;
+    height: 150px;
+    
+}
+.productviewcontainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: solid;
+}
+.productviewbox {
+    border: solid;
+}
+.productviewform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.productviewform .productviewcontrol{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

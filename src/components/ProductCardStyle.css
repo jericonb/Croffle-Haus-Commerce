@@ -13,3 +13,14 @@
         width: 30%;
         height: 25%
 }
+
+.productcardbox .btn-custom {
+    background-color: #e3bc9a;
+    color: black; 
+    font-size: 16px; 
+}
+
+.productcardbox .btn-custom:hover {
+    background-color: #cd874a;
+    transition: all 0.50s ease;
+  }

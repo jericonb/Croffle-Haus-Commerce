@@ -10,16 +10,16 @@ export default function ProductCard({ productProp }) {
     return (
         <div className="productcardbox">
             <img src={`https://croffle-haus.onrender.com/${image}`} alt='' />
-            <h1>{name}</h1>
-            <h3>Description:</h3>
+            <h3>{name}</h3>
+            <h5>Description:</h5>
             <p>{description}</p>
-            <h3>Price:</h3>
-            <p>PhP {price}</p>
-            <h3>Availability:</h3>
+            <h5>Price:</h5>
+            <p>₱ {price}</p>
+            <h5>Availability:</h5>
             <p>
                 {isActive ? <Card.Text>Available</Card.Text> : <Card.Text>Unavailable</Card.Text>}
             </p>
-            <Link className="btn btn-primary" to={`/products/${_id}`}>Details</Link>
+            <Link className="btn btn-custom" to={`/products/${_id}`}>Order Now!</Link>
         </div>
     );
 }

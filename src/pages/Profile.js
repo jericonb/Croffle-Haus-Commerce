@@ -17,8 +17,9 @@ export default function Profile(){
 
     useEffect(() => {
         fetch(`https://croffle-haus.onrender.com/users/details`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
         }
         })
         .then(res => res.json())

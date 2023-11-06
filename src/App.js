@@ -33,7 +33,6 @@ function App() {
 
   
   useEffect(() => {
-    console.log(user);
     fetch(`https://croffle-haus.onrender.com/users/details`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -41,7 +40,7 @@ function App() {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+  
       if(typeof data._id !== "undefined"){
         setUser({
             id: data._id,
