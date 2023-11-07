@@ -12,7 +12,9 @@ export default function Products(){
 	const [products, setProducts] = useState([]);
 
 	const fetchData = () => {
-	    fetch('https://croffle-haus.onrender.com/products/all')
+	    fetch('https://croffle-haus.onrender.com/products/all', {
+			method: 'GET'
+		})
 	    .then(res => res.json())
 	    .then(data => {
 	        console.log(data);

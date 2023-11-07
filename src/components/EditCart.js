@@ -13,7 +13,9 @@ export default function EditCart({product, fetchData}){
 
 	
 	const openEdit = (productId) => {
-		fetch('https://croffle-haus.onrender.com/users/userOrder')
+		fetch('https://croffle-haus.onrender.com/users/userOrder', {
+			method: 'GET'
+		})
 		.then(res => res.json())
 		.then(data => {
 			

@@ -13,7 +13,7 @@ export default function AddProducts(){
 
     const [name,setName] = useState("");
     const [description,setDescription] = useState("");
-    const [price,setPrice] = useState("");
+    const [price,setPrice] = useState(0);
     const [image,setImage] = useState("")
 
     async function createProduct(e) {
@@ -35,7 +35,7 @@ export default function AddProducts(){
                 }
             });
     
-            if (response.data) {
+            if (response) {
                 Swal.fire({
                     icon: "success",
                     title: "Product Added"
@@ -46,7 +46,7 @@ export default function AddProducts(){
                 Swal.fire({
                     icon: "error",
                     title: "Unsuccessful Product Creation",
-                    text: response.data.message
+                    text: response.message
                 });
             }
     
@@ -66,7 +66,7 @@ export default function AddProducts(){
             ?
             <>
                 <h1 className="my-5 text-center">Add Product</h1>
-                <Form onSubmit={e => createProduct(e)} encType='multipart/form-data'>
+                <Form onSubmit={e => createProduct(e)}>
                     <Form.Group>
                         <Form.Label>Name:</Form.Label>
                         <Form.Control type="text" placeholder="Enter Name" required value={name} onChange={e => setName(e.target.value)}/>

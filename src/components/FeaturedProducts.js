@@ -6,7 +6,9 @@ export default function FeaturedProducts(){
 	const [previews, setPreviews] = useState([])
 
 	useEffect(() => {
-		fetch(`https://croffle-haus.onrender.com/products/active`)
+		fetch(`https://croffle-haus.onrender.com/products/active`, {
+			method: 'GET'
+		})
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)
