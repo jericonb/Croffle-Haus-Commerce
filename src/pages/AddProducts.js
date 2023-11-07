@@ -21,20 +21,22 @@ export default function AddProducts(){
     
         let token = localStorage.getItem('token');
     
-        const formData = new FormData();
-        formData.append('image', image);
-        formData.append('name', name);
-        formData.append('description', description);
-        formData.append('price', price);
+        const formData = new FormData()
+        
+        formData.append('image', image)
+        formData.append('name', name)
+        formData.append('description', description)
+        formData.append('price', price)
     
         try {
-            const response = await axios.post(`https://croffle-haus.onrender.com/products/add`, formData, {
+            const response = await axios.post(`https://croffle-haus.onrender.com/products/add/`, formData, {
+                method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "multipart/form-data"
                 }
             });
-    
+         
             if (response) {
                 Swal.fire({
                     icon: "success",
@@ -54,10 +56,6 @@ export default function AddProducts(){
             console.error('Error creating product:', error);
         }
     
-        setName("");
-        setDescription("");
-        setPrice(0);
-        setImage("");
     }
     
     return (
@@ -81,7 +79,7 @@ export default function AddProducts(){
                     </Form.Group>
                     <Form.Group controlId='fileName'>
                         <Form.Label>Upload Image:</Form.Label>
-                        <Form.Control type="file" required name='image' onChange={(e) => setImage(e.target.files[0])} size="lg" />
+                        <Form.Control type="file" required name='image' onChange={(e) => setImage(e.target.files[0])} />
                     </Form.Group>
                     <Button variant="primary" type="submit" className="my-5">Submit</Button>
                 </Form>
