@@ -3,6 +3,7 @@ import {useState, useEffect, useContext} from 'react';
 import UserContext from '../UserContext';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import './RegisterStyle.css';
 
 export default function Register(){
 	
@@ -88,38 +89,44 @@ export default function Register(){
 		(user.id !== null) ?
 			<Navigate to="/products" />
 		:
-			<Form onSubmit={(e) => registerUser(e)}>
-		        <h1 className="my-5 text-center">Register</h1>
-		            <Form.Group>
-		                <Form.Label>First Name:</Form.Label>
-		                <Form.Control type="text" placeholder="Enter First Name" required value={firstName} onChange={e => {setFirstName(e.target.value)}}/>
-		            </Form.Group>
-		            <Form.Group>
-		                <Form.Label>Last Name:</Form.Label>
-		                <Form.Control type="text" placeholder="Enter Last Name" required value={lastName} onChange={e => {setLastName(e.target.value)}}/>
-		            </Form.Group>
-		            <Form.Group>
-		                <Form.Label>Email:</Form.Label>
-		                <Form.Control type="email" placeholder="Enter Email" required value={email} onChange={e => {setEmail(e.target.value)}}/>
-		            </Form.Group>
-		            <Form.Group>
-		                <Form.Label>Mobile No:</Form.Label>
-		                <Form.Control type="number" placeholder="Enter 11 Digit No." required value={mobileNo} onChange={e => {setMobileNo(e.target.value)}}/>
-		            </Form.Group>
-		            <Form.Group>
-		                <Form.Label>Password:</Form.Label>
-		                <Form.Control type="password" placeholder="Enter Password" required value={password} onChange={e => {setPassword(e.target.value)}}/>
-		            </Form.Group>
-		            <Form.Group>
-		                <Form.Label>Confirm Password:</Form.Label>
-		                <Form.Control type="password" placeholder="Confirm Password" required value={confirmPassword} onChange={e => {setConfirmPassword(e.target.value)}}/>
-		            </Form.Group>
-		            { 
-		            	isActive
+		<div className='registercontainer'>
+			<div className='registerbox'>
+				<Form onSubmit={(e) => registerUser(e)}>
+					<h1 className="registerheader">Register</h1>
+						<Form.Group>
+							<Form.Label className='registerfont'>First Name:</Form.Label>
+							<Form.Control type="text" placeholder="Enter First Name" required value={firstName} onChange={e => {setFirstName(e.target.value)}}/>
+						</Form.Group>
+						<Form.Group>
+							<Form.Label className='registerfont'>Last Name:</Form.Label>
+							<Form.Control type="text" placeholder="Enter Last Name" required value={lastName} onChange={e => {setLastName(e.target.value)}}/>
+						</Form.Group>
+						<Form.Group>
+							<Form.Label className='registerfont'> Email:</Form.Label>
+							<Form.Control type="email" placeholder="Enter Email" required value={email} onChange={e => {setEmail(e.target.value)}}/>
+						</Form.Group>
+						<Form.Group>
+							<Form.Label className='registerfont'>Mobile No:</Form.Label>
+							<Form.Control type="number" placeholder="Enter 11 Digit No." required value={mobileNo} onChange={e => {setMobileNo(e.target.value)}}/>
+						</Form.Group>
+						<Form.Group>
+							<Form.Label className='registerfont'>Password:</Form.Label>
+							<Form.Control type="password" placeholder="Enter Password" required value={password} onChange={e => {setPassword(e.target.value)}}/>
+						</Form.Group>
+						<Form.Group>
+							<Form.Label className='registerfont'>Confirm Password:</Form.Label>
+							<Form.Control type="password" placeholder="Confirm Password" required value={confirmPassword} onChange={e => {setConfirmPassword(e.target.value)}}/>
+						</Form.Group>
+						<div className='registerbuttonbox'>
+						{ 
+							isActive
 
-		            	?<Button variant="primary" type="submit" id="submitBtn" >Submit</Button>
-		            	:<Button variant="primary" type="submit" id="submitBtn" disabled>Submit</Button>
-		            }      
-	        </Form>
+							?<Button type="submit" id="submitBtn" className='registerbutton'>Submit</Button>
+							:<Button type="submit" id="submitBtn" className='registerbutton' disabled>Submit</Button>
+						}    
+						</div>  
+				</Form>
+			</div>
+		</div>
 	)
 }

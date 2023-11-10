@@ -1,17 +1,24 @@
+.productcardcontainer {
+    margin-bottom: 50px;
+}
+
 .productcardbox {
+    margin: 40px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    width: 25%;
-    margin: 30px;
+    align-items: center;
+    justify-content: space-between;
+    width: 20vw;
     height: 60vh;
-    padding: 0;
+    padding: 20px;
+    border: 1px solid #d4c8c8; 
+    border-radius: 8px; 
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .productcardbox img {
-        width: 30%;
-        height: 25%
+        width: 45%;
+        height: 35%
 }
 
 .productcardbox .btn-custom {

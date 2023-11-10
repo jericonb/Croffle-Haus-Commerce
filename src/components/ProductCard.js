@@ -8,6 +8,7 @@ export default function ProductCard({ productProp }) {
     const { _id, name, description, price, isActive, image } = productProp;
 
     return (
+        <div className="productcardcontainer"> 
         <div className="productcardbox">
             <img src={`https://croffle-haus.onrender.com/${image}`} alt='' />
             <h3>{name}</h3>
@@ -20,6 +21,7 @@ export default function ProductCard({ productProp }) {
                 {isActive ? <Card.Text>Available</Card.Text> : <Card.Text>Unavailable</Card.Text>}
             </p>
             <Link className="btn btn-custom" to={`/products/${_id}`}>Order Now!</Link>
+        </div>
         </div>
     );
 }

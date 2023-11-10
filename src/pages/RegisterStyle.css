@@ -1,0 +1,41 @@
+.registercontainer {
+    background-color: #E5E5DB;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+.registerbox {
+    width: 30%;
+
+}
+.registerheader {
+    font-size: 50px;
+    text-align: center;
+    
+}
+.registerfont {
+    font-size: 20px;
+    padding-top: 20px;
+  
+}
+.registerbuttonbox {
+    padding-top: 20px;
+    text-align: center;
+}
+.registerbuttonbox .registerbutton {
+    background-color: #e3bc9a;
+    color: black; 
+    font-size: 16px; 
+    border: transparent;
+}
+.registerbuttonbox .registerbutton:hover {
+    background-color: #cd874a;
+    color: black;
+    transition: all 0.50s ease;
+}
+.registerbuttonbox .registerbutton:disabled {
+    background-color: #e3bc9a;
+    color: black; 
+    border: transparent;
+}

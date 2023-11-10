@@ -1,15 +1,26 @@
 .previewcontainer {
-    margin: 20px;
+    margin-bottom: 50px;
+
+}
+.previewbox {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 18vw;
+    height: 40vh;
     padding: 20px;
-    width: 20%;
-  
+    border: 1px solid #d4c8c8; 
+    border-radius: 8px; 
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 .product-link {
     color: black;
 }
 .previewbox img {
-    width: 30%;
-    height: 30%
+    width: 40%;
+    height: 40%
 }
 
 .previewbox .btn-custom {

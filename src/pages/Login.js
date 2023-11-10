@@ -1,8 +1,10 @@
+import './LoginStyle.css';
 import { Form, Button } from 'react-bootstrap';
 import { useState, useEffect, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import UserContext from '../UserContext';
 import Swal from 'sweetalert2';
+
 
 export default function Login(props) {
     const {user, setUser} = useContext(UserContext);
@@ -91,14 +93,17 @@ export default function Login(props) {
     }, [email, password]);
 
     return ( 
+        
         (user.id !== null) ?
             <Navigate to="/products" />
         :   
+        <div className='logincontainer'>
+            <div className='loginbox'>
             <Form onSubmit={(e) => authenticate(e)}>
-               <h1 className="my-5 text-center">Login</h1>
+               <h1 className="loginheader">Login</h1>
                <Form.Group controlId="userEmail">
-                   <Form.Label>Email address</Form.Label>
-                   <Form.Control 
+                   <Form.Label className='loginfont'>Email address</Form.Label>
+                   <Form.Control className='logincontrol'
                        type="email" 
                        placeholder="Enter email"
                        value={email}
@@ -108,8 +113,8 @@ export default function Login(props) {
                </Form.Group>
 
                <Form.Group controlId="password">
-                   <Form.Label>Password</Form.Label>
-                   <Form.Control 
+                   <Form.Label className='loginfont'>Password</Form.Label>
+                   <Form.Control className='logincontrol'
                        type="password" 
                        placeholder="Password"
                        value={password}
@@ -117,15 +122,20 @@ export default function Login(props) {
                        required
                    />
                </Form.Group>
+               <div className='loginbuttonbox'>
                { isActive ?
-                   <Button variant="primary" type="submit" id="submitBtn">
+              
+                   <Button type="submit" id="submitBtn" className='loginbutton'>
                        Submit
                    </Button>
                    :
-                   <Button variant="primary" type="submit" id="submitBtn" disabled>
+                   <Button type="submit" id="submitBtn" className='loginbutton' disabled>
                        Submit
                    </Button>
                 }
+                </div>
            </Form>
+           </div>
+        </div>
     )
 }
